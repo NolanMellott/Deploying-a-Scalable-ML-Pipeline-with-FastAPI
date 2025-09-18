@@ -4,6 +4,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 import os
 from ml.model import load_model, compute_model_metrics
+from sklearn.metrics import fbeta_score, precision_score, recall_score
 
 import pickle
 
@@ -34,15 +35,19 @@ def test_valid_model():
     pass
 
 
-# TODO: implement the third test. Change the function name and input as needed
+
 def test_compute_model_metrics():
     """
     # Tests the compute_model_metrics function to ensure it calculates the metrics properly
     """
     y = [1, 0, 1, 1, 0, 1]
-    y_preds = [1, 0, 0, 1, 0, 0]
+    preds = [1, 0, 0, 1, 0, 0]
 
-    p, r, fb = compute_model_metrics(y, y_preds)
-    assert (p == 1.0, r == 0.5, fb == 1/3)
+    fbeta = fbeta_score(y, preds, beta=1, zero_division=1)
+    precision = precision_score(y, preds, zero_division=1)
+    recall = recall_score(y, preds, zero_division=1)
+
+    p, r, fb = compute_model_metrics(y, preds)
+    assert p == precision and r ==recall and fb == fbeta
     pass
 
