@@ -22,7 +22,7 @@ I split the data with a 75-25 split to break it into training and test datasets.
 features and label binarizering on the labels. I did not stratify the data features.
 
 ## Metrics
-The metrics I used were precision, recall, and F1 score. My model scored around 0.74, 0.62, and 0.67 in each metric 
+The metrics I used were precision, recall, and F1 score. My model scored around 0.82, 0.44, and 0.57 in each metric 
 respectfully.
 
 ## Ethical Considerations

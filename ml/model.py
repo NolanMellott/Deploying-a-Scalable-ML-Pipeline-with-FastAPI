@@ -20,8 +20,8 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
     RFC = RandomForestClassifier(
-        n_estimators=200,
-        max_depth=40
+        n_estimators=50,
+        max_depth=5
     )
     model = RFC.fit(X_train, y_train)
     return model
